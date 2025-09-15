@@ -141,6 +141,27 @@
   border: 1px solid #12263c;
   box-shadow: 0 12px 30px rgba(0,0,0,.35);
 }
+.panel__header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+.panel__header h1 {
+  font-size: clamp(26px, 4vw, 36px);
+  margin: 0 0 12px;
+  color: #fff;
+}
+.panel__header p {
+  font-size: 17px;
+  color: #cfe0ef;
+  margin: 0;
+}
+
+/* уменьшить нижний отступ от панели до футера */
+.wrap {
+  max-width: 1100px;
+  margin: 36px auto 32px; /* было auto 96px */
+  padding: 0 20px;
+}
 
   </style>
 </head>
@@ -160,18 +181,24 @@
 
   <!-- STEPS -->
 <main class="wrap">
-  <section class="panel" aria-label="How to pin and use the extension">
+  <section class="panel" aria-label="Welcome and how-to">
+    <div class="panel__header">
+      <h1>Thank you for installing Bulk Image Resizer!</h1>
+      <p>To ensure we stay connected, click the Extensions icon at the top right of Chrome and pin 'Bulk Image Resizer' to your toolbar.</p>
+    </div>
+
     <div class="panel__section">
       <p class="panel__caption">Pin the extension to your toolbar</p>
-      <img class="panel__media" src="Landing_Screen_1.png" alt="Step 1 — open the Extensions menu and click the pin to keep Bulk Image Resizer on the toolbar." />
+      <img class="panel__media" src="Landing_Screen_1.png" alt="Step 1 — pin Bulk Image Resizer to the toolbar" />
     </div>
 
     <div class="panel__section">
       <p class="panel__caption">Now, click the 'Bulk Image Resizer' icon whenever you need to instantly resize images.</p>
-      <img class="panel__media" src="Landing_Screen_2.png" alt="Step 2 — click the Bulk Image Resizer icon on the toolbar to start resizing images." />
+      <img class="panel__media" src="Landing_Screen_2.png" alt="Step 2 — click the Bulk Image Resizer icon" />
     </div>
   </section>
 </main>
+
 
 
   <footer>
