@@ -100,6 +100,48 @@
       padding: 28px 16px 48px;
     }
     .container{ max-width: 920px; margin: 0 auto; }
+
+    /* контейнер страницы */
+.wrap{
+  max-width: 1100px;
+  margin: 36px auto 96px;
+  padding: 0 20px;
+}
+
+/* ЕДИНЫЙ общий прямоугольник (как в референсе) */
+.panel{
+  background: linear-gradient(180deg, #0f1d2e, #0c1a29);
+  border: 1px solid #12263c;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 3px 10px rgba(0,0,0,.25);
+  padding: 28px 28px 22px;
+}
+
+/* секции внутри одной панели */
+.panel__section + .panel__section{
+  margin-top: 28px;              /* расстояние между скриншотами */
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.06); /* тонкий разделитель, как у референса */
+}
+
+/* подпись/текст над скрином */
+.panel__caption{
+  color:#cfe0ef;
+  font-size: clamp(16px, 2.1vw, 18px);
+  margin: 0 0 14px;
+  text-align: center;
+}
+
+/* сам скриншот */
+.panel__media{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius: 12px;
+  border: 1px solid #12263c;
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
   </style>
 </head>
 <body>
@@ -117,17 +159,20 @@
   </header>
 
   <!-- STEPS -->
-  <main class="wrap">
-    <section class="card">
-      <p class="card__caption">Pin the extension to your toolbar</p>
-      <img class="card__media" src="Landing_Screen_1.png" alt="Step 1 — open the Extensions menu and click the pin to keep Bulk Image Resizer on the toolbar." />
-    </section>
+<main class="wrap">
+  <section class="panel" aria-label="How to pin and use the extension">
+    <div class="panel__section">
+      <p class="panel__caption">Pin the extension to your toolbar</p>
+      <img class="panel__media" src="Landing_Screen_1.png" alt="Step 1 — open the Extensions menu and click the pin to keep Bulk Image Resizer on the toolbar." />
+    </div>
 
-    <section class="card">
-      <p class="card__caption">Now, click the 'Bulk Image Resizer' icon whenever you need to instantly resize images.</p>
-      <img class="card__media" src="Landing_Screen_2.png" alt="Step 2 — click the Bulk Image Resizer icon on the toolbar to start resizing images." />
-    </section>
-  </main>
+    <div class="panel__section">
+      <p class="panel__caption">Now, click the 'Bulk Image Resizer' icon whenever you need to instantly resize images.</p>
+      <img class="panel__media" src="Landing_Screen_2.png" alt="Step 2 — click the Bulk Image Resizer icon on the toolbar to start resizing images." />
+    </div>
+  </section>
+</main>
+
 
   <footer>
     © 2025 Bulk Image Resizer
