@@ -6,22 +6,23 @@
   <title>Bulk Image Resizer — Welcome</title>
   <meta name="description" content="Welcome page for Bulk Image Resizer Chrome extension." />
 
-  <!-- Optional: nicer type like the example -->
+  <!-- Небольшое улучшение типографики (как у референса) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
       --brand:#0A1625;      /* твой фирменный тёмный */
-      --fg:#ffffff;         /* белый текст в hero */
-      --text:#e6edf3;       /* осветлённый текст в hero */
-      --body:#0b1623;       /* общий тёмный фон страницы */
-      --card-bg:#0f1d2e;    /* фон карточек */
-      --card-border:#102235;
+      --body:#0b1623;       /* общий фон страницы */
+      --card-bg:#0f1d2e;    /* фон карточки */
+      --card-bg-2:#0c1a29;  /* нижний градиент карточки */
+      --card-border:#12263c;
+      --text-hero:#e6edf3;
+      --text-muted:#cfe0ef;
       --muted:#9fb3c8;
-      --radius:14px;
-      --shadow:0 20px 50px rgba(0,0,0,.35), 0 2px 8px rgba(0,0,0,.25);
+      --radius:18px;
+      --shadow:0 24px 60px rgba(0,0,0,.35), 0 3px 10px rgba(0,0,0,.25);
     }
 
     *{box-sizing:border-box}
@@ -33,176 +34,101 @@
       color:#dbe7f3;
     }
 
-    /* HERO */
-    .hero{
-      background: linear-gradient(180deg, var(--brand), #0b1b2c 70%);
-      padding: 64px 20px 56px;
-      text-align:center;
+    /* контейнер страницы: уменьшили нижний отступ, как просил */
+    .wrap{
+      max-width: 1100px;
+      margin: 36px auto 32px;  /* раньше было ~96px */
+      padding: 0 20px;
     }
-    .hero__icon{
+
+    /* единая «панель»-карточка как у референса */
+    .panel{
+      background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px 28px 22px;
+    }
+
+    /* шапка внутри панели (иконка + заголовок + подзаголовок) */
+    .panel__header{
+      text-align:center;
+      margin-bottom: 28px;
+    }
+    .panel__icon{
       display:inline-flex; align-items:center; justify-content:center;
       width:72px; height:72px; border-radius:50%;
       background:#0f2a44; border:1px solid #12314e; color:#7ceba3;
       box-shadow: 0 4px 12px rgba(0,0,0,.25) inset;
-      margin: 0 auto 18px;
+      margin: 4px auto 18px;
     }
-    .hero__icon svg{ width:36px; height:36px }
-    .hero h1{
-      color:var(--fg);
+    .panel__icon svg{ width:36px; height:36px; stroke: currentColor; }
+
+    .panel__header h1{
       font-size: clamp(28px, 4.4vw, 44px);
-      line-height:1.15;
-      letter-spacing:-.02em;
-      margin:0 0 16px;
-      font-weight: 800;
+      line-height:1.15; letter-spacing:-.02em;
+      margin:0 0 12px; font-weight: 800; color:#fff;
       text-wrap: balance;
     }
-    .hero p{
-      color:var(--text);
-      font-size: clamp(16px, 2.2vw, 18px);
-      max-width: 900px;
-      margin: 0 auto;
+    .panel__header p{
+      margin:0; font-size: 17px; color: var(--text-hero);
       opacity:.95;
     }
 
-    /* CONTENT */
-    .wrap{
-      max-width: 1050px;
-      margin: 36px auto 96px;
-      padding: 0 20px;
+    /* секции внутри панели */
+    .panel__section + .panel__section{
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,.06);
     }
-
-    .card{
-      background: linear-gradient(180deg, var(--card-bg), #0c1a29);
-      border:1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 26px 26px 18px;
-      box-shadow: var(--shadow);
-      margin: 28px auto;
-    }
-    .card__caption{
-      color:#cfe0ef;
-      font-size: clamp(16px, 2.2vw, 18px);
-      margin: 0 0 16px;
+    .panel__caption{
+      color: var(--text-muted);
+      font-size: clamp(16px, 2.1vw, 18px);
+      margin: 0 0 14px;
       text-align: center;
     }
-    .card__media{
-      display:block;
-      width:100%;
-      border-radius: 10px;
-      border:1px solid #12263c;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    .panel__media{
+      display:block; width:100%; height:auto;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 12px 30px rgba(0,0,0,.35);
     }
 
     footer{
       color: var(--muted);
       text-align:center;
       font-size: 13px;
-      padding: 28px 16px 48px;
+      padding: 20px 16px 40px;
     }
-    .container{ max-width: 920px; margin: 0 auto; }
-
-    /* контейнер страницы */
-.wrap{
-  max-width: 1100px;
-  margin: 36px auto 96px;
-  padding: 0 20px;
-}
-
-/* ЕДИНЫЙ общий прямоугольник (как в референсе) */
-.panel{
-  background: linear-gradient(180deg, #0f1d2e, #0c1a29);
-  border: 1px solid #12263c;
-  border-radius: 18px;
-  box-shadow: 0 24px 60px rgba(0,0,0,.35), 0 3px 10px rgba(0,0,0,.25);
-  padding: 28px 28px 22px;
-}
-
-/* секции внутри одной панели */
-.panel__section + .panel__section{
-  margin-top: 28px;              /* расстояние между скриншотами */
-  padding-top: 22px;
-  border-top: 1px solid rgba(255,255,255,.06); /* тонкий разделитель, как у референса */
-}
-
-/* подпись/текст над скрином */
-.panel__caption{
-  color:#cfe0ef;
-  font-size: clamp(16px, 2.1vw, 18px);
-  margin: 0 0 14px;
-  text-align: center;
-}
-
-/* сам скриншот */
-.panel__media{
-  display:block;
-  width:100%;
-  height:auto;
-  border-radius: 12px;
-  border: 1px solid #12263c;
-  box-shadow: 0 12px 30px rgba(0,0,0,.35);
-}
-.panel__header {
-  margin-bottom: 32px;
-  text-align: center;
-}
-.panel__header h1 {
-  font-size: clamp(26px, 4vw, 36px);
-  margin: 0 0 12px;
-  color: #fff;
-}
-.panel__header p {
-  font-size: 17px;
-  color: #cfe0ef;
-  margin: 0;
-}
-
-/* уменьшить нижний отступ от панели до футера */
-.wrap {
-  max-width: 1100px;
-  margin: 36px auto 32px; /* было auto 96px */
-  padding: 0 20px;
-}
-
   </style>
 </head>
 <body>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero__icon" aria-hidden="true">
-      <!-- чек-иконка как у примера -->
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20 6L9 17l-5-5"/>
-      </svg>
-    </div>
-    <h1>Thank you for installing Bulk Image Resizer!</h1>
-    <p>To ensure we stay connected, click the Extensions icon at the top right of Chrome and pin 'Bulk Image Resizer' to your toolbar.</p>
-  </header>
+  <main class="wrap">
+    <section class="panel" aria-label="Welcome and how-to">
+      <div class="panel__header">
+        <div class="panel__icon" aria-hidden="true">
+          <!-- зелёная «галочка» -->
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+        </div>
+        <h1>Thank you for installing Bulk Image Resizer!</h1>
+        <p>To ensure we stay connected, click the Extensions icon at the top right of Chrome and pin 'Bulk Image Resizer' to your toolbar.</p>
+      </div>
 
-  <!-- STEPS -->
-<main class="wrap">
-  <section class="panel" aria-label="Welcome and how-to">
-    <div class="panel__header">
-      <h1>Thank you for installing Bulk Image Resizer!</h1>
-      <p>To ensure we stay connected, click the Extensions icon at the top right of Chrome and pin 'Bulk Image Resizer' to your toolbar.</p>
-    </div>
+      <div class="panel__section">
+        <p class="panel__caption">Pin the extension to your toolbar</p>
+        <img class="panel__media" src="Landing_Screen_1.png" alt="Step 1 — pin Bulk Image Resizer to the toolbar" />
+      </div>
 
-    <div class="panel__section">
-      <p class="panel__caption">Pin the extension to your toolbar</p>
-      <img class="panel__media" src="Landing_Screen_1.png" alt="Step 1 — pin Bulk Image Resizer to the toolbar" />
-    </div>
+      <div class="panel__section">
+        <p class="panel__caption">Now, click the 'Bulk Image Resizer' icon whenever you need to instantly resize images.</p>
+        <img class="panel__media" src="Landing_Screen_2.png" alt="Step 2 — click the Bulk Image Resizer icon" />
+      </div>
+    </section>
+  </main>
 
-    <div class="panel__section">
-      <p class="panel__caption">Now, click the 'Bulk Image Resizer' icon whenever you need to instantly resize images.</p>
-      <img class="panel__media" src="Landing_Screen_2.png" alt="Step 2 — click the Bulk Image Resizer icon" />
-    </div>
-  </section>
-</main>
-
-
-
-  <footer>
-    © 2025 Bulk Image Resizer
-  </footer>
+  <footer>© 2025 Bulk Image Resizer</footer>
 </body>
 </html>
