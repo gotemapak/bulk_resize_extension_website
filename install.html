@@ -65,14 +65,6 @@
       text-align:center;
       margin-bottom: 28px;
     }
-    .panel__icon{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:72px; height:72px; border-radius:50%;
-      background:#0f2a44; border:1px solid #12314e; color:#7ceba3;
-      box-shadow: 0 4px 12px rgba(0,0,0,.25) inset;
-      margin: 4px auto 18px;
-    }
-    .panel__icon svg{ width:36px; height:36px; stroke: currentColor; }
 
     .panel__header h1{
       font-size: clamp(28px, 4.4vw, 44px);
@@ -104,19 +96,6 @@
       box-shadow: 0 12px 30px rgba(0,0,0,.35);
     }
 
-    /* Breadcrumb navigation */
-    .breadcrumb {
-      margin-bottom: 20px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .breadcrumb a {
-      color: var(--text-muted);
-      text-decoration: none;
-    }
-    .breadcrumb a:hover {
-      color: #7ceba3;
-    }
 
     footer{
       color: var(--muted);
@@ -129,19 +108,8 @@
 <body>
 
   <main class="wrap">
-    <!-- Breadcrumb navigation -->
-    <nav class="breadcrumb">
-      <a href="/">← Back to Home</a>
-    </nav>
-
     <section class="panel" aria-label="Welcome and how-to">
       <div class="panel__header">
-        <div class="panel__icon" aria-hidden="true">
-          <!-- зелёная «галочка» -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-            <path d="M20 6L9 17l-5-5" />
-          </svg>
-        </div>
         <h1>Thank you for installing Bulk Image Resizer!</h1>
         <p>To ensure we stay connected, click the Extensions icon at the top right of Chrome and pin 'Bulk Image Resizer' to your toolbar.</p>
       </div>
