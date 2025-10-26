@@ -3,36 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bulk Image Resizer — Welcome</title>
-  <meta name="description" content="Welcome page for Bulk Image Resizer Chrome extension." />
+  <title>Bulk Image Resizer — Resize Images in Bulk | Chrome Extension</title>
+  <meta name="description" content="Resize multiple images at once with Bulk Image Resizer Chrome extension. Batch resize photos, optimize file sizes, and convert formats instantly. Free and easy to use!" />
+  <meta name="keywords" content="bulk image resizer, resize images, batch resize, image optimization, photo resizer, chrome extension" />
   
   <!-- Umami -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="93c9dfe5-8eb3-4b94-a3b7-7828f1651d2e"></script>
  
-  <!-- Фавиконы -->
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   
-  <!-- Небольшое улучшение типографики (как у референса) -->
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --brand:#0A1625;      /* твой фирменный тёмный */
-      --body:#0b1623;       /* общий фон страницы */
-      --card-bg:#0f1d2e;    /* фон карточки */
-      --card-bg-2:#0c1a29;  /* нижний градиент карточки */
+      --brand:#0A1625;
+      --body:#0b1623;
+      --card-bg:#0f1d2e;
+      --card-bg-2:#0c1a29;
       --card-border:#12263c;
       --text-hero:#e6edf3;
       --text-muted:#cfe0ef;
       --muted:#9fb3c8;
+      --accent:#7ceba3;
+      --accent-hover:#6dd49a;
       --radius:18px;
       --shadow:0 24px 60px rgba(0,0,0,.35), 0 3px 10px rgba(0,0,0,.25);
+      --shadow-lg:0 32px 80px rgba(0,0,0,.4), 0 4px 16px rgba(0,0,0,.3);
     }
 
     *{box-sizing:border-box}
@@ -42,103 +46,451 @@
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--body);
       color:#dbe7f3;
+      line-height: 1.6;
     }
 
-    /* контейнер страницы: уменьшили нижний отступ, как просил */
-    .wrap{
-      max-width: 1100px;
-      margin: 36px auto 32px;  /* раньше было ~96px */
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* единая «панель»-карточка как у референса */
-    .panel{
+    /* Header */
+    .header{
+      padding: 40px 0 60px;
+      text-align: center;
+    }
+
+    .hero{
+      margin-bottom: 80px;
+    }
+
+    .hero__icon{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:80px; height:80px; border-radius:50%;
+      background: linear-gradient(135deg, #0f2a44, #1a3d5c);
+      border:1px solid #12314e; 
+      color: var(--accent);
+      box-shadow: 0 8px 24px rgba(0,0,0,.4) inset, 0 4px 16px rgba(124, 235, 163, .1);
+      margin: 0 auto 24px;
+    }
+
+    .hero__icon svg{ 
+      width:40px; height:40px; 
+      stroke: currentColor; 
+      stroke-width: 2;
+    }
+
+    .hero h1{
+      font-size: clamp(36px, 6vw, 64px);
+      line-height:1.1; 
+      letter-spacing:-.03em;
+      margin:0 0 20px; 
+      font-weight: 800; 
+      color:#fff;
+      text-wrap: balance;
+    }
+
+    .hero p{
+      font-size: clamp(18px, 2.5vw, 24px);
+      color: var(--text-hero);
+      margin: 0 0 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button{
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+      color: var(--brand);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 16px 32px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(124, 235, 163, .3);
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-button:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(124, 235, 163, .4);
+    }
+
+    .cta-button svg{
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Features Section */
+    .features{
+      margin: 80px 0;
+    }
+
+    .features h2{
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 60px;
+      color: #fff;
+    }
+
+    .features-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-bottom: 60px;
+    }
+
+    .feature-card{
       background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
       border: 1px solid var(--card-border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px 28px 22px;
-    }
-
-    /* шапка внутри панели (иконка + заголовок + подзаголовок) */
-    .panel__header{
-      text-align:center;
-      margin-bottom: 28px;
-    }
-    .panel__icon{
-      display:inline-flex; align-items:center; justify-content:center;
-      width:72px; height:72px; border-radius:50%;
-      background:#0f2a44; border:1px solid #12314e; color:#7ceba3;
-      box-shadow: 0 4px 12px rgba(0,0,0,.25) inset;
-      margin: 4px auto 18px;
-    }
-    .panel__icon svg{ width:36px; height:36px; stroke: currentColor; }
-
-    .panel__header h1{
-      font-size: clamp(28px, 4.4vw, 44px);
-      line-height:1.15; letter-spacing:-.02em;
-      margin:0 0 12px; font-weight: 800; color:#fff;
-      text-wrap: balance;
-    }
-    .panel__header p{
-      margin:0; font-size: 17px; color: var(--text-hero);
-      opacity:.95;
-    }
-
-    /* секции внутри панели */
-    .panel__section + .panel__section{
-      margin-top: 28px;
-      padding-top: 22px;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-    .panel__caption{
-      color: var(--text-muted);
-      font-size: clamp(16px, 2.1vw, 18px);
-      margin: 0 0 14px;
+      padding: 32px;
       text-align: center;
+      transition: all 0.3s ease;
     }
-    .panel__media{
-      display:block; width:100%; height:auto;
+
+    .feature-card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-icon{
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #0f2a44, #1a3d5c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      color: var(--accent);
+    }
+
+    .feature-icon svg{
+      width: 28px;
+      height: 28px;
+    }
+
+    .feature-card h3{
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 12px;
+      color: #fff;
+    }
+
+    .feature-card p{
+      color: var(--text-muted);
+      margin: 0;
+      font-size: 16px;
+    }
+
+    /* Screenshots Section */
+    .screenshots{
+      margin: 80px 0;
+    }
+
+    .screenshots h2{
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 40px;
+      color: #fff;
+    }
+
+    .screenshots-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 32px;
+    }
+
+    .screenshot{
       border-radius: 12px;
       border: 1px solid var(--card-border);
-      box-shadow: 0 12px 30px rgba(0,0,0,.35);
+      box-shadow: var(--shadow);
+      overflow: hidden;
     }
 
-    footer{
+    .screenshot img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Benefits Section */
+    .benefits{
+      margin: 80px 0;
+      background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    .benefits h2{
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      margin: 0 0 20px;
+      color: #fff;
+    }
+
+    .benefits p{
+      font-size: 18px;
+      color: var(--text-muted);
+      margin: 0 0 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .benefits-list{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .benefit-item{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-hero);
+      font-weight: 500;
+    }
+
+    .benefit-item svg{
+      width: 20px;
+      height: 20px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .footer{
+      text-align: center;
+      padding: 60px 0 40px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      margin-top: 80px;
+    }
+
+    .footer p{
       color: var(--muted);
-      text-align:center;
-      font-size: 13px;
-      padding: 20px 16px 40px;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container{
+        padding: 0 16px;
+      }
+      
+      .hero{
+        margin-bottom: 60px;
+      }
+      
+      .features, .screenshots, .benefits{
+        margin: 60px 0;
+      }
+      
+      .benefits{
+        padding: 40px 20px;
+      }
+      
+      .screenshots-grid{
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-  <main class="wrap">
-    <section class="panel" aria-label="Welcome and how-to">
-      <div class="panel__header">
-        <div class="panel__icon" aria-hidden="true">
-          <!-- зелёная «галочка» -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-            <path d="M20 6L9 17l-5-5" />
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="hero">
+        <div class="hero__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21,15 16,10 5,21"/>
           </svg>
         </div>
-        <h1>Thank you for installing Bulk Image Resizer!</h1>
-        <p>To ensure we stay connected, click the Extensions icon at the top right of Chrome and pin 'Bulk Image Resizer' to your toolbar.</p>
+        <h1>Resize Images in Bulk</h1>
+        <p>Process hundreds of images at once with our powerful Chrome extension. Resize, optimize, and convert image formats instantly - all in your browser.</p>
+        <a href="/install" class="cta-button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7,10 12,15 17,10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Install Extension
+        </a>
       </div>
+    </header>
 
-      <div class="panel__section">
-        <p class="panel__caption">Pin the extension to your toolbar</p>
-        <img class="panel__media" src="Landing_Screen_1.png" alt="Step 1 — pin Bulk Image Resizer to the toolbar" />
-      </div>
-
-      <div class="panel__section">
-        <p class="panel__caption">Now, click the 'Bulk Image Resizer' icon whenever you need to instantly resize images.</p>
-        <img class="panel__media" src="Landing_Screen_2.png" alt="Step 2 — click the Bulk Image Resizer icon" />
+    <!-- Features Section -->
+    <section class="features">
+      <h2>Why Choose Bulk Image Resizer?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>Lightning Fast</h3>
+          <p>Process hundreds of images in seconds with our optimized browser-based engine. No uploads, no waiting.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21,15 16,10 5,21"/>
+            </svg>
+          </div>
+          <h3>Multiple Formats</h3>
+          <p>Support for JPG, PNG, WebP, and more. Convert between formats while resizing for maximum compatibility.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Privacy First</h3>
+          <p>All processing happens locally in your browser. Your images never leave your device - complete privacy guaranteed.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 12l2 2 4-4"/>
+              <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+              <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+              <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
+              <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+            </svg>
+          </div>
+          <h3>Smart Presets</h3>
+          <p>Pre-configured sizes for social media, web use, and common formats. Or create custom dimensions for your needs.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10,9 9,9 8,9"/>
+            </svg>
+          </div>
+          <h3>Batch Processing</h3>
+          <p>Upload entire folders and process them all at once. Perfect for photographers, designers, and content creators.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <h3>Quality Control</h3>
+          <p>Maintain image quality while reducing file sizes. Advanced algorithms ensure your images look great at any size.</p>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer>© 2025 Bulk Image Resizer</footer>
+    <!-- Screenshots Section -->
+    <section class="screenshots">
+      <h2>See It In Action</h2>
+      <div class="screenshots-grid">
+        <div class="screenshot">
+          <img src="Landing_Screen_1.png" alt="Bulk Image Resizer - Main Interface" />
+        </div>
+        <div class="screenshot">
+          <img src="Landing_Screen_2.png" alt="Bulk Image Resizer - Processing Images" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+      <h2>Perfect For Everyone</h2>
+      <p>Whether you're a professional designer or just need to resize family photos, Bulk Image Resizer makes it easy.</p>
+      
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+          </svg>
+          <span>Photographers & Designers</span>
+        </div>
+        <div class="benefit-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+          </svg>
+          <span>Social Media Managers</span>
+        </div>
+        <div class="benefit-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+          </svg>
+          <span>Web Developers</span>
+        </div>
+        <div class="benefit-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+          </svg>
+          <span>Content Creators</span>
+        </div>
+        <div class="benefit-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+          </svg>
+          <span>Small Business Owners</span>
+        </div>
+        <div class="benefit-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 12l2 2 4-4"/>
+            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+          </svg>
+          <span>Students & Hobbyists</span>
+        </div>
+      </div>
+      
+      <a href="/install" class="cta-button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7,10 12,15 17,10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Get Started Now
+      </a>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 Bulk Image Resizer. Made with ❤️ for creators everywhere.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
