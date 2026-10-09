@@ -11,13 +11,12 @@ Priority reflects audience tiers requested: US first, then UK/CA/AU, then Indone
 3. **batch image resizer chrome extension** (US/Tier-1, captures "chrome extension" + "batch" searchers)
 4. **free bulk image resizer** (US/Tier-1 — "free" is a real, provable claim on the page)
 5. **resize images in browser** (US/Tier-1/Indonesia-Philippines — emphasizes local/privacy angle, no upload)
-6. **bulk photo resizer online** (Tier-1 + ID/PH — broader consumer phrasing, still accurate since it runs "online" in-browser even though no server upload occurs)
-7. **resize and convert images in bulk** (Tier-1 — captures the format-conversion feature, a real differentiator)
-8. **batch resize images for social media** (global tail — ties to the "Smart Presets" feature, genuinely implied by page content)
+6. **resize and convert images in bulk** (Tier-1 — captures the format-conversion feature, a real differentiator)
+7. **batch resize images for social media** (global tail — ties to the "Smart Presets" feature, genuinely implied by page content)
 
 Notes:
 - Avoided invented/location-specific terms (e.g. no "resize images Indonesia") since the product and page have no localized content to back them.
-- "Online" in #6 is defensible because the extension functions like an online tool from the user's perspective (no install of desktop software, browser-based UI) even though processing is local — worth flagging to the human reviewer in case they'd rather avoid any "online/upload" connotation.
+- Dropped "bulk photo resizer online" (previously #6) per human review — misleading, since processing is local/in-browser, not server-based, and "online" implies upload.
 
 ## 2. Hero headline + subheadline options
 
