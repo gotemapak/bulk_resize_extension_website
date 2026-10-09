@@ -1,0 +1,11 @@
+# Bulk Image Resizer
+
+> Bulk Image Resizer is a free Chrome extension for resizing multiple images at once. It can resize, optimize, and convert image formats (JPG, PNG, WebP and more) in the browser; the site states that processing happens locally and images do not leave the user's device.
+
+## Main pages
+
+- [Home](https://bulk-image-resizer.com/): Overview of features (batch processing, multiple formats, presets for social media and web, custom dimensions, local in-browser processing)
+
+## Install
+
+- [Chrome Web Store listing](https://chromewebstore.google.com/detail/bulk-image-resizer/apbofiadpimeihiapjhjcpjjboibkeoh): Install Bulk Image Resizer in Google Chrome (free)
