@@ -5,6 +5,9 @@
 ## Main pages
 
 - [Home](https://bulk-image-resizer.com/): Overview of features (batch processing, multiple formats, presets for social media and web, custom dimensions, local in-browser processing)
+- [Guide](https://bulk-image-resizer.com/guide/): How to bulk resize images for e-commerce listings and social media posts
+- [FAQ](https://bulk-image-resizer.com/faq/): Answers about uploads, supported formats, folder batches, presets, and offline use
+- [Local vs. Upload-Based Resizing](https://bulk-image-resizer.com/local-processing/): Comparison of local, browser-based resizing with typical upload-based web resize tools
 
 ## Install
 
