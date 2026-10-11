@@ -173,37 +173,6 @@
     .prose li{ margin-bottom: 8px; }
     .prose strong{ color:#fff; }
 
-    /* Comparison table */
-    .compare-wrap{
-      max-width: 900px;
-      margin: 0 auto;
-      overflow-x: auto;
-      border-radius: var(--radius);
-      border: 1px solid var(--card-border);
-    }
-    table.compare{
-      width: 100%;
-      border-collapse: collapse;
-      background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
-    }
-    table.compare th, table.compare td{
-      padding: 16px 20px;
-      text-align: left;
-      border-bottom: 1px solid var(--card-border);
-      font-size: 15px;
-      color: var(--text-muted);
-      vertical-align: top;
-    }
-    table.compare th{
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      background: rgba(255,255,255,.03);
-    }
-    table.compare tr:last-child td{ border-bottom: none; }
-    table.compare td.col-bir{ color: var(--text-hero); }
-    table.compare td.yes{ color: var(--accent); font-weight: 600; }
-
     .feature-card{
       text-align: left;
     }
@@ -278,7 +247,7 @@
     </header>
 
     <!-- The two models -->
-    <section class="features">
+    <section class="article-body">
       <h2>Two Different Ways to Resize Images</h2>
       <div class="prose">
         <p>
@@ -291,10 +260,10 @@
     </section>
 
     <!-- Comparison table -->
-    <section class="features">
+    <section class="article-body">
       <h2>Side-by-Side Comparison</h2>
-      <div class="compare-wrap">
-        <table class="compare">
+      <div class="compare-table-wrap">
+        <table class="compare-table">
           <thead>
             <tr>
               <th>What happens</th>
@@ -304,49 +273,49 @@
           </thead>
           <tbody>
             <tr>
-              <td>Where files are processed</td>
-              <td>On the provider's server, after upload</td>
-              <td class="col-bir yes">Locally, in your browser tab</td>
+              <td data-label="What happens">Where files are processed</td>
+              <td data-label="Typical upload-based web resizer">On the provider's server, after upload</td>
+              <td data-label="Bulk Image Resizer">Locally, in your browser tab</td>
             </tr>
             <tr>
-              <td>Does your original file leave your device?</td>
-              <td>Yes — it's uploaded before processing</td>
-              <td class="col-bir yes">No — processing happens on-device</td>
+              <td data-label="What happens">Does your original file leave your device?</td>
+              <td data-label="Typical upload-based web resizer">Yes — it's uploaded before processing</td>
+              <td data-label="Bulk Image Resizer">No — processing happens on-device</td>
             </tr>
             <tr>
-              <td>Server-side copy of your images</td>
-              <td>Often retained temporarily (or longer) on the provider's infrastructure</td>
-              <td class="col-bir yes">None — there's no server step to copy files to</td>
+              <td data-label="What happens">Server-side copy of your images</td>
+              <td data-label="Typical upload-based web resizer">Often retained temporarily (or longer) on the provider's infrastructure</td>
+              <td data-label="Bulk Image Resizer">None — there's no server step to copy files to</td>
             </tr>
             <tr>
-              <td>Speed for large batches</td>
-              <td>Limited by upload bandwidth and server queue time</td>
-              <td class="col-bir yes">Hundreds of images in seconds, no upload wait</td>
+              <td data-label="What happens">Speed for large batches</td>
+              <td data-label="Typical upload-based web resizer">Limited by upload bandwidth and server queue time</td>
+              <td data-label="Bulk Image Resizer">Hundreds of images in seconds, no upload wait</td>
             </tr>
             <tr>
-              <td>Works with a whole folder at once</td>
-              <td>Varies by tool; many cap batch size or require one-by-one uploads</td>
-              <td class="col-bir yes">Yes — select an entire folder as one batch</td>
+              <td data-label="What happens">Works with a whole folder at once</td>
+              <td data-label="Typical upload-based web resizer">Varies by tool; many cap batch size or require one-by-one uploads</td>
+              <td data-label="Bulk Image Resizer">Yes — select an entire folder as one batch</td>
             </tr>
             <tr>
-              <td>Format conversion (JPG / PNG / WebP)</td>
-              <td>Varies by tool</td>
-              <td class="col-bir yes">Built in, in the same step as resizing</td>
+              <td data-label="What happens">Format conversion (JPG / PNG / WebP)</td>
+              <td data-label="Typical upload-based web resizer">Varies by tool</td>
+              <td data-label="Bulk Image Resizer">Built in, in the same step as resizing</td>
             </tr>
             <tr>
-              <td>Cost</td>
-              <td>Varies — free tiers often cap file count or size</td>
-              <td class="col-bir yes">See Chrome Web Store for pricing</td>
+              <td data-label="What happens">Cost</td>
+              <td data-label="Typical upload-based web resizer">Varies — free tiers often cap file count or size</td>
+              <td data-label="Bulk Image Resizer">See Chrome Web Store for pricing</td>
             </tr>
             <tr>
-              <td>Account required</td>
-              <td>Varies by tool</td>
-              <td class="col-bir yes">No account or sign-up</td>
+              <td data-label="What happens">Account required</td>
+              <td data-label="Typical upload-based web resizer">Varies by tool</td>
+              <td data-label="Bulk Image Resizer">No account or sign-up</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p style="text-align:center;margin-top:16px;color:var(--muted);font-size:14px;">
+      <p class="table-footnote" style="text-align:center;">
         "Typical upload-based web resizer" describes the general upload-then-process model common to browser-based resize websites, not any specific competitor product.
       </p>
     </section>
@@ -375,7 +344,7 @@
     </section>
 
     <!-- When this matters most -->
-    <section class="features">
+    <section class="article-body">
       <h2>Who Notices This Most</h2>
       <div class="prose">
         <p>
