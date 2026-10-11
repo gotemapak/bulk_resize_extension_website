@@ -154,11 +154,11 @@
       height: 20px;
     }
 
-    .features{
+    .features-section{
       margin: 40px 0 70px;
     }
 
-    .features h2{
+    .features-section h2{
       font-size: clamp(24px, 3.2vw, 32px);
       font-weight: 700;
       text-align: center;
@@ -259,13 +259,16 @@
       .hero{
         margin-bottom: 40px;
       }
-      .features{
+      .features-section{
         margin: 50px 0;
       }
       .step{
         flex-direction: column;
       }
     }
+
+    /* Text/table sections: block layout, centred column aligned with .prose */
+    section.article-body{ max-width: 760px; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>
@@ -294,7 +297,7 @@
     </header>
 
     <!-- Why a workflow -->
-    <section class="features">
+    <section class="article-body">
       <div class="prose">
         <p>
           Most sellers already know <em>that</em> they should resize product photos consistently — mismatched dimensions make a storefront look inconsistent, and some marketplaces reject or auto-crop images that don't match their spec. What's missing more often is the <em>process</em>: a fixed order of steps you can run every time a new batch of product photos comes in, instead of re-deciding how to handle images listing by listing.
@@ -306,7 +309,7 @@
     </section>
 
     <!-- The workflow -->
-    <section class="features">
+    <section class="article-body">
       <h2>The Six-Step Workflow</h2>
       <div class="step-list">
         <div class="step">
@@ -355,7 +358,7 @@
     </section>
 
     <!-- Why batch over manual -->
-    <section class="features">
+    <section class="features-section">
       <h2>Where This Saves the Most Time</h2>
       <div class="features-grid">
         <div class="feature-card">
@@ -378,7 +381,7 @@
     </section>
 
     <!-- Format note -->
-    <section class="features">
+    <section class="article-body">
       <h2>A Note on Formats</h2>
       <div class="prose">
         <p>
@@ -388,7 +391,7 @@
     </section>
 
     <!-- Common mistakes -->
-    <section class="features">
+    <section class="article-body">
       <h2>Common Mistakes That Slow This Down</h2>
       <div class="prose">
         <p>
@@ -407,7 +410,7 @@
     </section>
 
     <!-- Keeping it repeatable -->
-    <section class="features">
+    <section class="article-body">
       <h2>Making the Workflow Stick</h2>
       <div class="prose">
         <p>
@@ -428,7 +431,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Bulk Image Resizer. Made with ❤️ for creators everywhere. <a href="/">Home</a></p>
+      <p>© 2026 Bulk Image Resizer. Made with ❤️ for creators everywhere. <a href="/">Home</a></p>
       <p style="margin-top:10px;">
         <a href="/guide/">Guide</a> &nbsp;·&nbsp; <a href="/faq/">FAQ</a> &nbsp;·&nbsp; <a href="/local-processing/">Local vs. Upload-Based Resizing</a> &nbsp;·&nbsp; <a href="/blog/">Blog</a> &nbsp;·&nbsp; <a href="/vs-batch-resize-images/">vs. Batch Resize Images</a> &nbsp;·&nbsp; <a href="/vs-manual-resizing/">vs. Manual Resizing</a>
       </p>

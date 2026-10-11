@@ -154,11 +154,11 @@
       height: 20px;
     }
 
-    .features{
+    .features-section{
       margin: 40px 0 70px;
     }
 
-    .features h2{
+    .features-section h2{
       font-size: clamp(24px, 3.2vw, 32px);
       font-weight: 700;
       text-align: center;
@@ -177,34 +177,6 @@
     .prose ul, .prose ol{ padding-left: 22px; line-height: 1.8; }
     .prose li{ margin-bottom: 8px; }
     .prose strong{ color:#fff; }
-
-    .compare-wrap{
-      max-width: 900px;
-      margin: 0 auto;
-      overflow-x: auto;
-      border-radius: var(--radius);
-      border: 1px solid var(--card-border);
-    }
-    table.compare{
-      width: 100%;
-      border-collapse: collapse;
-      background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
-    }
-    table.compare th, table.compare td{
-      padding: 16px 20px;
-      text-align: left;
-      border-bottom: 1px solid var(--card-border);
-      font-size: 15px;
-      color: var(--text-muted);
-      vertical-align: top;
-    }
-    table.compare th{
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      background: rgba(255,255,255,.03);
-    }
-    table.compare tr:last-child td{ border-bottom: none; }
 
     .feature-card{
       text-align: left;
@@ -248,10 +220,13 @@
       .hero{
         margin-bottom: 40px;
       }
-      .features{
+      .features-section{
         margin: 50px 0;
       }
     }
+
+    /* Text/table sections: block layout, centred column aligned with .prose */
+    section.article-body{ max-width: 760px; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>
@@ -280,7 +255,7 @@
     </header>
 
     <!-- Intro -->
-    <section class="features">
+    <section class="article-body">
       <div class="prose">
         <p>
           When you're resizing one image, picking a format is an afterthought. When you're batch-processing a whole folder — product photos, a photo shoot, a set of graphics — getting the format wrong means re-running the entire batch, or shipping files that are needlessly large or don't support the transparency you need. Bulk Image Resizer converts between JPG, PNG, and WebP in the same step as resizing, so it's worth knowing the real differences before you pick one for an entire batch.
@@ -289,31 +264,31 @@
     </section>
 
     <!-- Comparison table -->
-    <section class="features">
+    <section class="article-body">
       <h2>The Core Differences</h2>
-      <div class="compare-wrap">
-        <table class="compare">
+      <div class="compare-table-wrap">
+        <table class="compare-table">
           <thead>
             <tr><th>Format</th><th>Compression</th><th>Transparency</th><th>Typical use</th></tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>JPG</strong></td>
-              <td>Lossy — smaller files, some quality loss on re-compression</td>
-              <td>No</td>
-              <td>Photos: product shots, social posts, general web images</td>
+              <td data-label="Format"><strong>JPG</strong></td>
+              <td data-label="Compression">Lossy — smaller files, some quality loss on re-compression</td>
+              <td data-label="Transparency">No</td>
+              <td data-label="Typical use">Photos: product shots, social posts, general web images</td>
             </tr>
             <tr>
-              <td><strong>PNG</strong></td>
-              <td>Lossless — larger files, no quality loss</td>
-              <td>Yes — full alpha channel</td>
-              <td>Logos, graphics with transparent backgrounds, screenshots, cut-out product images</td>
+              <td data-label="Format"><strong>PNG</strong></td>
+              <td data-label="Compression">Lossless — larger files, no quality loss</td>
+              <td data-label="Transparency">Yes — full alpha channel</td>
+              <td data-label="Typical use">Logos, graphics with transparent backgrounds, screenshots, cut-out product images</td>
             </tr>
             <tr>
-              <td><strong>WebP</strong></td>
-              <td>Lossy or lossless, generally smaller than JPG or PNG at similar quality</td>
-              <td>Yes</td>
-              <td>Web images where smaller file size matters and the destination supports it</td>
+              <td data-label="Format"><strong>WebP</strong></td>
+              <td data-label="Compression">Lossy or lossless, generally smaller than JPG or PNG at similar quality</td>
+              <td data-label="Transparency">Yes</td>
+              <td data-label="Typical use">Web images where smaller file size matters and the destination supports it</td>
             </tr>
           </tbody>
         </table>
@@ -321,7 +296,7 @@
     </section>
 
     <!-- When to pick each -->
-    <section class="features">
+    <section class="features-section">
       <h2>Which One to Pick for a Batch</h2>
       <div class="features-grid">
         <div class="feature-card">
@@ -344,7 +319,7 @@
     </section>
 
     <!-- Practical notes -->
-    <section class="features">
+    <section class="article-body">
       <h2>A Few Practical Notes</h2>
       <div class="prose">
         <p>
@@ -360,7 +335,7 @@
     </section>
 
     <!-- Decision checklist -->
-    <section class="features">
+    <section class="article-body">
       <h2>A Quick Decision Checklist</h2>
       <div class="prose">
         <ol>
@@ -373,7 +348,7 @@
     </section>
 
     <!-- Testing before committing -->
-    <section class="features">
+    <section class="article-body">
       <h2>Test Before Converting an Entire Catalog</h2>
       <div class="prose">
         <p>
@@ -394,7 +369,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Bulk Image Resizer. Made with ❤️ for creators everywhere. <a href="/">Home</a></p>
+      <p>© 2026 Bulk Image Resizer. Made with ❤️ for creators everywhere. <a href="/">Home</a></p>
       <p style="margin-top:10px;">
         <a href="/guide/">Guide</a> &nbsp;·&nbsp; <a href="/faq/">FAQ</a> &nbsp;·&nbsp; <a href="/local-processing/">Local vs. Upload-Based Resizing</a> &nbsp;·&nbsp; <a href="/blog/">Blog</a> &nbsp;·&nbsp; <a href="/vs-batch-resize-images/">vs. Batch Resize Images</a> &nbsp;·&nbsp; <a href="/vs-manual-resizing/">vs. Manual Resizing</a>
       </p>

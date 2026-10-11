@@ -149,11 +149,11 @@
     }
 
     /* Sections */
-    .features{
+    .features-section{
       margin: 40px 0 80px;
     }
 
-    .features h2{
+    .features-section h2{
       font-size: clamp(26px, 3.6vw, 36px);
       font-weight: 700;
       text-align: center;
@@ -215,10 +215,13 @@
       .hero{
         margin-bottom: 40px;
       }
-      .features{
+      .features-section{
         margin: 50px 0;
       }
     }
+
+    /* Text/table sections: block layout, centred column aligned with .prose */
+    section.article-body{ max-width: 760px; margin-left: auto; margin-right: auto; }
   </style>
 </head>
 <body>
@@ -321,7 +324,7 @@
     </section>
 
     <!-- Why it matters -->
-    <section class="features">
+    <section class="features-section">
       <h2>Why This Difference Matters</h2>
       <div class="features-grid">
         <div class="feature-card">
@@ -367,7 +370,7 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p>© 2025 Bulk Image Resizer. Made with ❤️ for creators everywhere. <a href="/">Home</a></p>
+      <p>© 2026 Bulk Image Resizer. Made with ❤️ for creators everywhere. <a href="/">Home</a></p>
       <p style="margin-top:10px;">
         <a href="/guide/">Guide</a> &nbsp;·&nbsp; <a href="/faq/">FAQ</a> &nbsp;·&nbsp; <a href="/local-processing/">Local vs. Upload-Based Resizing</a> &nbsp;·&nbsp; <a href="/blog/">Blog</a> &nbsp;·&nbsp; <a href="/vs-batch-resize-images/">vs. Batch Resize Images</a> &nbsp;·&nbsp; <a href="/vs-manual-resizing/">vs. Manual Resizing</a>
       </p>
